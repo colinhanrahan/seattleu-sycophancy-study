@@ -1,0 +1,2 @@
+INTRO: Here is your topic for today's conversation:
+OUTRO: You may begin chatting whenever you are ready. When you are finished, type `end chat` to end the conversation.

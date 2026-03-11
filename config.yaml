@@ -1,0 +1,11 @@
+participant_id: P001
+
+# Defaults
+model: qwen2.5:3b
+server_url: http://localhost:11434/v1
+
+dry_run: false
+human_readable: true
+prompt: prompts/universal.txt
+test_message: null
+topic: topics/food_desert.txt
