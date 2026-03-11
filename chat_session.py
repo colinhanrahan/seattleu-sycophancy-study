@@ -54,9 +54,10 @@ async def end_session(reason: str) -> None:
         if CONFIG.dry_run:
             print("[DRY RUN] Session ended, no logs saved.")
         else:
-            print(f"[INFO] Session ended ({reason}). JSONL: {log_path}")
+            print(f"[INFO] Session ended ({reason}).")
+            print(f"[INFO] .jsonl log: {log_path}")
             if CONFIG.human_readable and md_path:
-                print(f"[INFO] Text log: {md_path}")
+                print(f"[INFO] .md log: {md_path}")
     else:
         print("[INFO] Session ended before any messages, no log created.")
 
