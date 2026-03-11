@@ -18,11 +18,11 @@ class Config:
 
 
 def load_config(path: str = "config.yaml") -> Config:
-    cfg_file = Path(path)
-    if not cfg_file.exists():
+    config_file = Path(path)
+    if not config_file.exists():
         sys.exit(f"ERROR: Config file not found: {path}")
 
-    with cfg_file.open(encoding="utf-8") as f:
+    with config_file.open(encoding="utf-8") as f:
         data = yaml.safe_load(f)
 
     return Config(

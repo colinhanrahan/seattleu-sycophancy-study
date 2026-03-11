@@ -8,8 +8,8 @@ from pathlib import Path
 from config import Config
 
 
-def parse_universal_prompt(cfg: Config) -> tuple[str, str]:
-    prompt_file = Path(cfg.prompt)
+def parse_universal_prompt(config: Config) -> tuple[str, str]:
+    prompt_file = Path(config.prompt)
     if not prompt_file.exists():
         sys.exit(f"ERROR: Prompt file not found: {prompt_file}")
 
@@ -27,26 +27,26 @@ def parse_universal_prompt(cfg: Config) -> tuple[str, str]:
     return intro, outro
 
 
-def load_topic(cfg: Config) -> str:
-    topic_file = Path(cfg.topic)
+def load_topic(config: Config) -> str:
+    topic_file = Path(config.topic)
     if not topic_file.exists():
         sys.exit(f"ERROR: Topic file not found: {topic_file}")
     return topic_file.read_text(encoding="utf-8").strip()
 
 
-def load_test_message(cfg: Config) -> str | None:
-    if not cfg.test_message:
+def load_test_message(config: Config) -> str | None:
+    if not config.test_message:
         return None
-    test_file = Path(cfg.test_message)
+    test_file = Path(config.test_message)
     if not test_file.exists():
         sys.exit(f"ERROR: Test message file not found: {test_file}")
     return test_file.read_text(encoding="utf-8").strip()
 
 
-def build_greeting(cfg: Config, topic_text: str) -> str:
+def build_greeting(config: Config, topic_text: str) -> str:
     """
     Sandwich topic_text between the intro and outro.
     This is shown to the participant only and is not part of the model history.
     """
-    intro, outro = parse_universal_prompt(cfg)
+    intro, outro = parse_universal_prompt(config)
     return f"{intro}\n\n*{topic_text}*\n\n{outro}"
