@@ -10,7 +10,7 @@ A Chainlit-based chat interface for running human subjects research on LLM sycop
 ## Quickstart
 ```bash
 # 1. Clone and set up
-git clone <repo-url> && cd <repo>
+git clone https://github.com/colinhanrahan/seattleu-sycophancy-study && cd seattleu-sycophancy-study
 python3 -m venv venv
 source venv/bin/activate
 make install
